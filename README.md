@@ -1,6 +1,11 @@
 # ModelVerse
 
 ModelVerse is a serverless, mobile-first Progressive Web Application (PWA) that provides a unified playground for experimenting with AWS Bedrock AI models on-the-go. Zero server costs - you only pay for what you use on AWS.
+## Demo
+
+[Youtube - Mobile Demo](https://youtube.com/shorts/BAVxIwVKoD0?feature=share)
+
+[Youtube - Desktop Demo](https://youtu.be/0LlmEGKYDiw)
 
 ## Features
 
@@ -144,9 +149,6 @@ function handler(event) {
 # Variables
 BUCKET="your-modelverse-bucket"
 DISTRIBUTION_ID="your-distribution-id"
-
-# Build application (if needed)
-npm run build
 
 # Sync with S3
 aws s3 sync dist/ s3://$BUCKET --delete
