@@ -7,6 +7,8 @@ ModelVerse is a serverless, mobile-first Progressive Web Application (PWA) that 
 
 [Youtube - Desktop Demo](https://youtu.be/0LlmEGKYDiw)
 
+[Demo](https://d2og8r8wkws7r1.cloudfront.net/)
+
 ## Features
 
 - 🚀 Mobile-first design optimized for on-the-go AI experimentation
