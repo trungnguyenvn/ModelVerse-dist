@@ -36,6 +36,61 @@ ModelVerse is a serverless, mobile-first Progressive Web Application (PWA) that 
   - PWA installation
   - Service Workers
 
+## AWS IAM Setup for Bedrock
+
+### Create IAM User with Least Privilege
+
+1. **Sign in to AWS Console**
+   - Go to IAM service
+   - Click "Users" → "Create user"
+   - Enter username (e.g., "modelverse-bedrock-user")
+   - Select "Access key - Programmatic access"
+
+2. **Create Custom Policy**
+   - Go to "Policies" → "Create policy"
+   - Use the following JSON:
+   ```json
+   {
+       "Version": "2012-10-17",
+       "Statement": [
+           {
+               "Sid": "BedrockMinimalAccess",
+               "Effect": "Allow",
+               "Action": [
+                   "bedrock:InvokeModel",
+                   "bedrock:InvokeModelWithResponseStream",
+                   "bedrock:ListFoundationModels"
+               ],
+               "Resource": "*"
+           }
+       ]
+   }
+   ```
+   - Name the policy (e.g., "ModelVerse-Bedrock-Policy")
+   - The `InvokeModelWithResponseStream` permission is required for streaming responses
+
+3. **Attach Policy to User**
+   - Return to the user creation process
+   - Search for and select the policy you just created
+   - Complete user creation
+
+4. **Save Credentials**
+   - After user creation, save the Access Key ID and Secret Access Key
+   - These credentials will be used in ModelVerse
+   - ⚠️ This is your only chance to view the Secret Access Key
+
+### Enable Bedrock Model Access
+
+1. **Access Bedrock Console**
+   - Go to AWS Bedrock service
+   - Navigate to "Model access"
+
+2. **Request Model Access**
+   - Select the models you want to use
+   - Click "Request model access"
+   - Wait for approval (usually immediate)
+   - Ensure you enable both Claude and Claude-Instant for streaming support
+
 # ModelVerse Distribution Guide
 
 This guide explains how to host the ModelVerse distribution folder (`/dist`) using different hosting services.
